@@ -23,7 +23,7 @@ public class SimpleSlickGame extends BasicGame
 	@Override
 	public void render(GameContainer gc, Graphics g) throws SlickException
 	{
-		g.drawString("Hello World!", 100, 400);
+		g.drawString("Hello World!", 100, 300);
 	}
 
 	public static void main(String[] args)
