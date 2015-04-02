@@ -74,6 +74,7 @@ public class SimpleSlickGame extends BasicGame
 	{
 		try
 		{
+			
 			AppGameContainer appgc;
 			//TINAS LORT VIRKER IKKE
 			
@@ -82,7 +83,6 @@ public class SimpleSlickGame extends BasicGame
 			appgc.setTargetFrameRate(60);
 			appgc.setDisplayMode(640, 480, false);		
 			appgc.start();
-			
 			
 		}
 		catch (SlickException ex)
