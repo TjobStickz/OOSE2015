@@ -12,9 +12,6 @@ import org.newdawn.slick.SlickException;
 
 public class SimpleSlickGame extends BasicGame
 {
-	GameContainer container;
-	
-	
 	
 	public int time;
 	public float fallSpeed;
@@ -70,8 +67,8 @@ public class SimpleSlickGame extends BasicGame
 
 		int w = longD.getWidth();
 	
-		Input input = container.getInput();
-		if(input.isKeyDown(Input.MOUSE_LEFT_BUTTON)){
+		Input input = gc.getInput();
+		if(input.isKeyPressed(Input.KEY_S)){
 
 			PosY += w;
 				
