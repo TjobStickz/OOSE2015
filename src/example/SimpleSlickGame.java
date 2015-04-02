@@ -28,7 +28,7 @@ public class SimpleSlickGame extends BasicGame
 	@SuppressWarnings("unused")
 	private Image miniBoob = null;
 	
-	public float PosX = 320f;
+	public float PosX = 200f;
 	public float PosY = 50f;
 	
 	public SimpleSlickGame(String gamename)
@@ -76,12 +76,11 @@ public class SimpleSlickGame extends BasicGame
 		{
 			
 			AppGameContainer appgc;
-			//TINAS LORT VIRKER IKKE
 			
 			appgc = new AppGameContainer(new SimpleSlickGame("Tetris"));
 			appgc.setShowFPS(false);
 			appgc.setTargetFrameRate(60);
-			appgc.setDisplayMode(640, 480, false);		
+			appgc.setDisplayMode(540, 720, false);		
 			appgc.start();
 			
 		}
