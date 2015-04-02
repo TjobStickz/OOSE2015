@@ -14,7 +14,9 @@ public class SimpleSlickGame extends BasicGame
 {
 	
 	public int time;
-	public float fallSpeed;
+	public int fallSpeed;
+	public int rotate = 0;
+	public boolean rotateCheck = false;
 
 	private Image longD = null;
 	@SuppressWarnings("unused")
@@ -54,7 +56,7 @@ public class SimpleSlickGame extends BasicGame
 		threesome = new Image("data/Threesome.png");
 		miniBoob = new Image("data/Mini_Boob.png");
 		
-		longD.rotate(90);
+		
 		
 		
 		
@@ -64,15 +66,44 @@ public class SimpleSlickGame extends BasicGame
 	public void update(GameContainer gc, int delta) throws SlickException {
 		
 		time += delta;
-
+		fallSpeed += delta;
+		
 		int w = longD.getWidth();
+		
 	
 		Input input = gc.getInput();
-		if(input.isKeyPressed(Input.KEY_S)){
-
+		
+		if(fallSpeed/1000 == 1){
+			
+			
 			PosY += w;
+			fallSpeed = 0;
+		}
+		
+		if(input.isKeyPressed(Input.KEY_A)){
+
+			PosX -= w;
 				
 		}
+		if(input.isKeyPressed(Input.KEY_D)){
+
+			PosX += w;
+				
+		}
+		if(input.isKeyDown(Input.KEY_W)){
+			
+			if(rotate < 50){
+				if(rotateCheck = false)
+					rotate += 90;
+				rotateCheck = true;
+			} else if (rotate > 50){
+				if(rotateCheck = false)
+					rotate -= 90;
+				rotateCheck = true;
+			}
+			longD.rotate(rotate);
+		}
+		
 		
 		
 		
@@ -84,6 +115,7 @@ public class SimpleSlickGame extends BasicGame
 	public void render(GameContainer gc, Graphics g) throws SlickException
 	{
 		g.drawString("Time : " + time/1000, 0, 0);
+		g.drawString("Rotation : " + rotate, 0, 20);
 		longD.draw(PosX,PosY, 1.5f);
 	}
 
@@ -96,7 +128,7 @@ public class SimpleSlickGame extends BasicGame
 			
 			appgc = new AppGameContainer(new SimpleSlickGame("Tetris"));
 			appgc.setShowFPS(false);
-			appgc.setTargetFrameRate(60);
+			appgc.setTargetFrameRate(1000);
 			appgc.setDisplayMode(540, 720, false);		
 			appgc.start();
 			
