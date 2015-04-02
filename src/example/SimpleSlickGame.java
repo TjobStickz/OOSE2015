@@ -74,14 +74,16 @@ public class SimpleSlickGame extends BasicGame
 	{
 		try
 		{
-			
 			AppGameContainer appgc;
 			
 			
 			appgc = new AppGameContainer(new SimpleSlickGame("Tetris"));
+			appgc.setShowFPS(false);
+			appgc.setTargetFrameRate(60);
 			appgc.setDisplayMode(640, 480, false);		
 			appgc.start();
-			appgc.setShowFPS(false);
+			
+			
 		}
 		catch (SlickException ex)
 		{
