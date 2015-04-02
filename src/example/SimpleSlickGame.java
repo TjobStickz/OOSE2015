@@ -7,11 +7,18 @@ import org.newdawn.slick.BasicGame;
 import org.newdawn.slick.GameContainer;
 import org.newdawn.slick.Graphics;
 import org.newdawn.slick.Image;
+import org.newdawn.slick.Input;
 import org.newdawn.slick.SlickException;
 
 public class SimpleSlickGame extends BasicGame
 {
+	GameContainer container;
+	
+	
+	
 	public int time;
+	public float fallSpeed;
+
 	private Image longD = null;
 	@SuppressWarnings("unused")
 	private Image sex = null;
@@ -52,13 +59,26 @@ public class SimpleSlickGame extends BasicGame
 		
 		longD.rotate(90);
 		
+		
+		
 	}
 
 	@Override
 	public void update(GameContainer gc, int delta) throws SlickException {
 		
 		time += delta;
-		PosY += 0.2f;
+
+		int w = longD.getWidth();
+	
+		Input input = container.getInput();
+		if(input.isKeyDown(Input.MOUSE_LEFT_BUTTON)){
+
+			PosY += w;
+				
+		}
+		
+		
+		
 		
 		
 	}
