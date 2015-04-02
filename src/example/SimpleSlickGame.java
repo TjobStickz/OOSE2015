@@ -11,8 +11,7 @@ import org.newdawn.slick.SlickException;
 
 public class SimpleSlickGame extends BasicGame
 {
-	
-	
+	public int time;
 	private Image longD = null;
 	@SuppressWarnings("unused")
 	private Image sex = null;
@@ -39,6 +38,9 @@ public class SimpleSlickGame extends BasicGame
 
 	@Override
 	public void init(GameContainer gc) throws SlickException {
+		
+		
+		
 		longD = new Image("data/LongD.png");
 		sex = new Image("data/6.png");
 		nine = new Image("data/9.png");
@@ -53,8 +55,9 @@ public class SimpleSlickGame extends BasicGame
 	}
 
 	@Override
-	public void update(GameContainer gc, int i) throws SlickException {
+	public void update(GameContainer gc, int delta) throws SlickException {
 		
+		time += delta;
 		PosY += 0.2f;
 		
 		
@@ -63,6 +66,7 @@ public class SimpleSlickGame extends BasicGame
 	@Override
 	public void render(GameContainer gc, Graphics g) throws SlickException
 	{
+		g.drawString("Time : " + time/1000, 0, 0);
 		longD.draw(PosX,PosY, 1.5f);
 	}
 
@@ -70,12 +74,14 @@ public class SimpleSlickGame extends BasicGame
 	{
 		try
 		{
+			
 			AppGameContainer appgc;
-
+			
+			
 			appgc = new AppGameContainer(new SimpleSlickGame("Tetris"));
-			appgc.setDisplayMode(640, 481, false);
-
+			appgc.setDisplayMode(640, 480, false);		
 			appgc.start();
+			appgc.setShowFPS(false);
 		}
 		catch (SlickException ex)
 		{
