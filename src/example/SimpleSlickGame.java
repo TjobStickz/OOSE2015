@@ -13,6 +13,8 @@ public class SimpleSlickGame extends BasicGame
 {
 	
 	private Image longD = null;
+	public float PosX = 320f;
+	public float PosY = 50f;
 	
 	public SimpleSlickGame(String gamename)
 	{
@@ -22,12 +24,14 @@ public class SimpleSlickGame extends BasicGame
 	@Override
 	public void init(GameContainer gc) throws SlickException {
 		longD = new Image("data/LongD.png");
+		longD.rotate(90);
 		
 	}
 
 	@Override
 	public void update(GameContainer gc, int i) throws SlickException {
 		
+		PosY += 0.2f;
 		
 		
 	}
@@ -35,7 +39,7 @@ public class SimpleSlickGame extends BasicGame
 	@Override
 	public void render(GameContainer gc, Graphics g) throws SlickException
 	{
-		longD.draw(320,200, 1.5f);
+		longD.draw(PosX,PosY, 1.5f);
 	}
 
 	public static void main(String[] args)
