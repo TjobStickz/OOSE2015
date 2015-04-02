@@ -12,7 +12,23 @@ import org.newdawn.slick.SlickException;
 public class SimpleSlickGame extends BasicGame
 {
 	
+	
 	private Image longD = null;
+	@SuppressWarnings("unused")
+	private Image sex = null;
+	@SuppressWarnings("unused")
+	private Image nine = null;
+	@SuppressWarnings("unused")
+	private Image doggy = null;
+	@SuppressWarnings("unused")
+	private Image reverseDoggy = null;
+	@SuppressWarnings("unused")
+	private Image boob = null;
+	@SuppressWarnings("unused")
+	private Image threesome = null;
+	@SuppressWarnings("unused")
+	private Image miniBoob = null;
+	
 	public float PosX = 320f;
 	public float PosY = 50f;
 	
@@ -24,6 +40,14 @@ public class SimpleSlickGame extends BasicGame
 	@Override
 	public void init(GameContainer gc) throws SlickException {
 		longD = new Image("data/LongD.png");
+		sex = new Image("data/6.png");
+		nine = new Image("data/9.png");
+		doggy = new Image("data/Doggy.png");
+		reverseDoggy = new Image("data/ReverseDoggy.png");
+		boob = new Image("data/boob.png");
+		threesome = new Image("data/Threesome.png");
+		miniBoob = new Image("data/Mini_Boob.png");
+		
 		longD.rotate(90);
 		
 	}
