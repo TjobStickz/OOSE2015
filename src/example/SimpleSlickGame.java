@@ -49,7 +49,7 @@ public class SimpleSlickGame extends BasicGame
 			AppGameContainer appgc;
 
 			appgc = new AppGameContainer(new SimpleSlickGame("Tetris"));
-			appgc.setDisplayMode(640, 480, false);
+			appgc.setDisplayMode(640, 481, false);
 
 			appgc.start();
 		}
