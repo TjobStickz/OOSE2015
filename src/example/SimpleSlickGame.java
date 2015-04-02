@@ -35,7 +35,7 @@ public class SimpleSlickGame extends BasicGame
 	@Override
 	public void render(GameContainer gc, Graphics g) throws SlickException
 	{
-		longD.draw(320,200);
+		longD.draw(320,200, 1.5f);
 	}
 
 	public static void main(String[] args)
