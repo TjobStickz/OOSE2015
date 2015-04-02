@@ -75,7 +75,7 @@ public class SimpleSlickGame extends BasicGame
 		try
 		{
 			AppGameContainer appgc;
-			
+			//TINAS LORT VIRKER IKKE
 			
 			appgc = new AppGameContainer(new SimpleSlickGame("Tetris"));
 			appgc.setShowFPS(false);
