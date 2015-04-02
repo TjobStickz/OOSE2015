@@ -35,6 +35,7 @@ public class SimpleSlickGame extends BasicGame
 	@Override
 	public void render(GameContainer gc, Graphics g) throws SlickException
 	{
+
 		g.drawString("Hello World!", 100, 300);
 		longD.draw();
 	}
@@ -44,8 +45,10 @@ public class SimpleSlickGame extends BasicGame
 		try
 		{
 			AppGameContainer appgc;
+
 			appgc = new AppGameContainer(new SimpleSlickGame("Tetris"));
 			appgc.setDisplayMode(640, 480, false);
+
 			appgc.start();
 		}
 		catch (SlickException ex)
