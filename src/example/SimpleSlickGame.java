@@ -37,7 +37,7 @@ public class SimpleSlickGame extends BasicGame
 	{
 
 		g.drawString("Hello World!", 100, 300);
-		longD.draw(320,240);
+		longD.draw(320,200);
 	}
 
 	public static void main(String[] args)
