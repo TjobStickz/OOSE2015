@@ -47,6 +47,7 @@ public class SimpleSlickGame extends BasicGame
 		
 		
 		
+		
 		longD = new Image("data/LongD.png");
 		sex = new Image("data/6.png");
 		nine = new Image("data/9.png");
