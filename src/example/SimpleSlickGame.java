@@ -32,7 +32,7 @@ public class SimpleSlickGame extends BasicGame
 	@SuppressWarnings("unused")
 	private Image threesome = null;
 	@SuppressWarnings("unused")
-	private Image miniBoob = null;
+	public Image miniBoob = null;
 	
 	public float PosX = 200f;
 	public float PosY = 50f;
