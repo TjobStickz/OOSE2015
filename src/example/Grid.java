@@ -1,21 +1,17 @@
 package example;
-
-import org.newdawn.slick.Image;
+//import org.newdawn.slick.Image;
 
 public class Grid {
 	
-	int[] gridW = new int[10];
-	int[] gridY = new int[22];
-	
-	
+	//int[][] grid = new int[10][22];
 	
 	Grid(int posX, int posY){
 		
 		for(int y = 0; y < 22; y++){
-			for(int i = 0; i < 10; i++){
+			for(int x = 0; x < 10; x++){
 				
-				gridY[y];
-				gridW[i];
+				//grid[x][y];
+				
 				
 				
 			}

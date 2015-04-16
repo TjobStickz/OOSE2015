@@ -32,7 +32,11 @@ public class SimpleSlickGame extends BasicGame
 	@SuppressWarnings("unused")
 	private Image threesome = null;
 	@SuppressWarnings("unused")
-	public Image miniBoob = null;
+	private Image miniBoob = null;
+	@SuppressWarnings("unused")
+	private Image[] miniArr = new Image[4];
+	
+	
 	
 	public float PosX = 200f;
 	public float PosY = 50f;
@@ -57,6 +61,12 @@ public class SimpleSlickGame extends BasicGame
 		threesome = new Image("data/Threesome.png");
 		miniBoob = new Image("data/Mini_Boob.png");
 		
+		for(int i = 0; i < miniArr.length; i++){
+			
+			miniArr[i] = new Image("data/Mini_Boob.png");
+			
+		}
+		
 		
 		
 		
@@ -69,7 +79,7 @@ public class SimpleSlickGame extends BasicGame
 		time += delta;
 		fallSpeed += delta;
 		
-		int w = longD.getWidth();
+		float w = (1.5f) * (longD.getWidth());
 		
 	
 		Input input = gc.getInput();
@@ -115,9 +125,19 @@ public class SimpleSlickGame extends BasicGame
 	@Override
 	public void render(GameContainer gc, Graphics g) throws SlickException
 	{
+		
+		float w = (1.5f)*(miniBoob.getHeight());
+		
 		g.drawString("Time : " + time/1000, 0, 0);
 		g.drawString("Rotation : " + rotate, 0, 20);
 		longD.draw(PosX,PosY, 1.5f);
+		
+		for(int i = 0; i < miniArr.length; i++){
+		miniArr[i].draw(PosX + 20 + (w*i), PosY, 1.5f);
+		
+		}
+		
+		
 	}
 
 	public static void main(String[] args)
