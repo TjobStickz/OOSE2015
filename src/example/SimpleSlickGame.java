@@ -59,11 +59,11 @@ public class SimpleSlickGame extends BasicGame
 		reverseDoggy = new Image("data/ReverseDoggy.png");
 		boob = new Image("data/boob.png");
 		threesome = new Image("data/Threesome.png");
-		miniBoob = new Image("data/Mini_Boob2.png");
+		miniBoob = new Image("data/Mini_Boob3.png");
 		
 		for(int i = 0; i < miniArr.length; i++){
 			
-			miniArr[i] = new Image("data/Mini_Boob2.png");
+			miniArr[i] = new Image("data/Mini_Boob3.png");
 			
 		}
 		
@@ -81,7 +81,6 @@ public class SimpleSlickGame extends BasicGame
 		
 		float w = (1.5f) * (longD.getWidth());
 		
-	
 		Input input = gc.getInput();
 		
 		if(fallSpeed/1000 == 1){
