@@ -125,14 +125,14 @@ public class SimpleSlickGame extends BasicGame
 	public void render(GameContainer gc, Graphics g) throws SlickException
 	{
 		
-		float w = (1.5f)*(miniBoob.getHeight());
+		float w = (miniBoob.getHeight());
 		
 		g.drawString("Time : " + time/1000, 0, 0);
 		g.drawString("Rotation : " + rotate, 0, 20);
 		longD.draw(PosX,PosY, 1.5f);
 		
 		for(int i = 0; i < miniArr.length; i++){
-		miniArr[i].draw(PosX + 20 + (w*i), PosY, 1.5f);
+		miniArr[i].draw(PosX + 20 + (w*i), PosY);
 		
 		}
 		

@@ -3,14 +3,15 @@ package example;
 
 public class Grid {
 	
-	//int[][] grid = new int[10][22];
+	int[] gridX = new int[10];
+	int[] gridY = new int[22];
 	
 	Grid(int posX, int posY){
 		
-		for(int y = 0; y < 22; y++){
-			for(int x = 0; x < 10; x++){
+		for(int y = 0; y < gridY.length; y++){
+			for(int x = 0; x < gridX.length; x++){
 				
-				//grid[x][y];
+				
 				
 				
 				
