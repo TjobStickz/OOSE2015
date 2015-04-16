@@ -1,21 +1,19 @@
 package example;
-//import org.newdawn.slick.Image;
+
+import org.newdawn.slick.Image;
+import org.newdawn.slick.Graphics;
+import org.newdawn.slick.SlickException;
 
 public class Grid {
 	
-	int[] gridX = new int[10];
-	int[] gridY = new int[22];
+	int x,y;
 	
-	Grid(int posX, int posY){
+	Image grid;
+	
+	public void render(Graphics g) throws SlickException{
 		
-		for(int y = 0; y < gridY.length; y++){
-			for(int x = 0; x < gridX.length; x++){
-				
-				
-				
-				
-				
-			}
-		}
+		grid = new Image("date/Mini_Boob");
+		
 	}
+
 }
