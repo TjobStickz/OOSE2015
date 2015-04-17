@@ -36,7 +36,7 @@ public class SimpleSlickGame extends BasicGame
 	@SuppressWarnings("unused")
 	private Image[] miniArr = new Image[4];
 	
-	
+	Grid drawG;
 	
 	public float PosX = 200f;
 	public float PosY = 50f;
@@ -134,6 +134,8 @@ public class SimpleSlickGame extends BasicGame
 		for(int i = 0; i < miniArr.length; i++){
 		miniArr[i].draw(PosX + 20 + (w*i), PosY);
 		
+		drawG.render(gc.getGraphics());
+		
 		}
 		
 		
@@ -143,7 +145,6 @@ public class SimpleSlickGame extends BasicGame
 	{
 		try
 		{
-			
 			AppGameContainer appgc;
 			
 			appgc = new AppGameContainer(new SimpleSlickGame("Tetris"));
