@@ -63,7 +63,7 @@ public class SimpleSlickGame extends BasicGame
 		
 		for(int i = 0; i < miniArr.length; i++){
 			
-			miniArr[i] = new Image("data/Mini_Boob3.png");
+			miniArr[i] = new Image("data/Mini_Boob2.png");
 			
 		}
 		
@@ -125,14 +125,14 @@ public class SimpleSlickGame extends BasicGame
 	public void render(GameContainer gc, Graphics g) throws SlickException
 	{
 		
-		float w = (miniBoob.getHeight());
+		float w = (1.5f)*(miniBoob.getHeight());
 		
 		g.drawString("Time : " + time/1000, 0, 0);
 		g.drawString("Rotation : " + rotate, 0, 20);
 		longD.draw(PosX,PosY, 1.5f);
 		
 		for(int i = 0; i < miniArr.length; i++){
-		miniArr[i].draw(PosX + 20 + (w*i), PosY);
+		miniArr[i].draw(PosX + 20 + (w*i), PosY, 1.5f);
 		
 		drawG.render(gc.getGraphics());
 		
