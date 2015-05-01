@@ -36,10 +36,10 @@ public class SimpleSlickGame extends BasicGame
 	@SuppressWarnings("unused")
 	private Image[] miniArr = new Image[4];
 	
-	
+	Grid drawG;
 	
 	public float PosX = 200f;
-	public float PosY = 50f;
+	public float PosY = 51f;
 	
 	public SimpleSlickGame(String gamename)
 	{
@@ -52,18 +52,18 @@ public class SimpleSlickGame extends BasicGame
 		
 		
 		
-		longD = new Image("data/LongD.png");
-		sex = new Image("data/6.png");
-		nine = new Image("data/9.png");
-		doggy = new Image("data/Doggy.png");
-		reverseDoggy = new Image("data/ReverseDoggy.png");
+		longD = new Image("data/LongDmini.png");
+		sex = new Image("data/6mini.png");
+		nine = new Image("data/9mini.png");
+		doggy = new Image("data/DoggyMini.png");
+		reverseDoggy = new Image("data/ReverseDoggyMini.png");
 		boob = new Image("data/boob.png");
-		threesome = new Image("data/Threesome.png");
+		threesome = new Image("data/ThreesomeMini.png");
 		miniBoob = new Image("data/Mini_Boob3.png");
 		
 		for(int i = 0; i < miniArr.length; i++){
 			
-			miniArr[i] = new Image("data/Mini_Boob2.png");
+			miniArr[i] = new Image("data/Mini_Boob3.png");
 			
 		}
 		
@@ -134,6 +134,8 @@ public class SimpleSlickGame extends BasicGame
 		for(int i = 0; i < miniArr.length; i++){
 		miniArr[i].draw(PosX + 20 + (w*i), PosY, 1.5f);
 		
+		drawG.render(gc.getGraphics());
+		
 		}
 		
 		
@@ -143,7 +145,6 @@ public class SimpleSlickGame extends BasicGame
 	{
 		try
 		{
-			
 			AppGameContainer appgc;
 			
 			appgc = new AppGameContainer(new SimpleSlickGame("Tetris"));
