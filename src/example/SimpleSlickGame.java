@@ -52,18 +52,18 @@ public class SimpleSlickGame extends BasicGame
 		
 		
 		
-		longD = new Image("data/LongD.png");
-		sex = new Image("data/6.png");
-		nine = new Image("data/9.png");
-		doggy = new Image("data/Doggy.png");
-		reverseDoggy = new Image("data/ReverseDoggy.png");
+		longD = new Image("data/LongDmini.png");
+		sex = new Image("data/6mini.png");
+		nine = new Image("data/9mini.png");
+		doggy = new Image("data/DoggyMini.png");
+		reverseDoggy = new Image("data/ReverseDoggyMini.png");
 		boob = new Image("data/boob.png");
-		threesome = new Image("data/Threesome.png");
+		threesome = new Image("data/ThreesomeMini.png");
 		miniBoob = new Image("data/Mini_Boob3.png");
 		
 		for(int i = 0; i < miniArr.length; i++){
 			
-			miniArr[i] = new Image("data/Mini_Boob2.png");
+			miniArr[i] = new Image("data/Mini_Boob3.png");
 			
 		}
 		
