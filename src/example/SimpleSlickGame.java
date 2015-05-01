@@ -39,7 +39,7 @@ public class SimpleSlickGame extends BasicGame
 	Grid drawG;
 	
 	public float PosX = 200f;
-	public float PosY = 50f;
+	public float PosY = 51f;
 	
 	public SimpleSlickGame(String gamename)
 	{
