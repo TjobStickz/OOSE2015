@@ -12,6 +12,7 @@ import org.newdawn.slick.SlickException;
 
 public class SimpleSlickGame extends BasicGame
 {
+	tGrid grid;
 	
 	public SimpleSlickGame(String gamename)
 	{
@@ -21,6 +22,7 @@ public class SimpleSlickGame extends BasicGame
 	@Override
 	public void init(GameContainer gc) throws SlickException 
 	{
+		grid = new tGrid();
 	}
 
 	@Override
