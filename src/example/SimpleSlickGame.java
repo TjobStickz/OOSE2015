@@ -33,6 +33,11 @@ public class SimpleSlickGame extends BasicGame
 	@Override
 	public void render(GameContainer gc, Graphics g) throws SlickException
 	{
+		for(int i = 4; i < grid.yRow.length - 1; i++){
+			for(int j = i; j < grid.xRow.length - 1; j++){
+				grid.gridImg.draw(grid.xRow[j], grid.yRow[i]);
+			}
+		}
 	}
 
 	public static void main(String[] args)
