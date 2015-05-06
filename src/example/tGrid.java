@@ -24,7 +24,7 @@ public class tGrid {
 		for(int i = 0; i < yRow.length; i++)
 			yRow[i] = posY + (i*18);
 		
-		gridImg = new Image("data/BlackTest.png")
+		gridImg = new Image("data/BlackTest.png");
 		
 	}
 
