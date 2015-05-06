@@ -13,6 +13,7 @@ import org.newdawn.slick.SlickException;
 public class SimpleSlickGame extends BasicGame
 {
 	tGrid grid;
+	brick Long;
 	
 	public SimpleSlickGame(String gamename)
 	{
@@ -23,6 +24,7 @@ public class SimpleSlickGame extends BasicGame
 	public void init(GameContainer gc) throws SlickException 
 	{
 		grid = new tGrid();
+		Long = new brick(xCor, yCor, caseType)
 	}
 
 	@Override
@@ -33,6 +35,8 @@ public class SimpleSlickGame extends BasicGame
 	@Override
 	public void render(GameContainer gc, Graphics g) throws SlickException
 	{
+		
+//		Draw Tetris grid.
 		for(int i = 4; i < grid.yRow.length - 1; i++){
 			for(int j = i; j < grid.xRow.length - 1; j++){
 				grid.gridImg.draw(grid.xRow[j], grid.yRow[i]);
