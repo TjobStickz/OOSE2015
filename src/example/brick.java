@@ -131,6 +131,30 @@ public class brick extends tGrid {
 			break;
 			}
 		break;
+		case 6: // S Piece
+			switch(rotate){
+			case 1: brick = new int[][]{{this.posX-1,this.posY},{this.posX+1,this.posY-1},{this.posX,this.posY},{this.posX,this.posY-1}};
+			break;
+			case 2: brick = new int[][]{{this.posX-1,this.posY},{this.posX-1,this.posY-1},{this.posX,this.posY},{this.posX,this.posY+1}};
+			break;
+			case 3: brick = new int[][]{{this.posX-1,this.posY},{this.posX+1,this.posY-1},{this.posX,this.posY},{this.posX,this.posY-1}};
+			break;
+			case 4: brick = new int[][]{{this.posX-1,this.posY},{this.posX-1,this.posY-1},{this.posX,this.posY},{this.posX,this.posY+1}};
+			break;
+			}
+		break;
+		case 7: // Z Piece
+			switch(rotate){
+			case 1: brick = new int[][]{{this.posX-1,this.posY-1},{this.posX,this.posY-1},{this.posX,this.posY},{this.posX+1,this.posY}};
+			break;
+			case 2: brick = new int[][]{{this.posX-1,this.posY+1},{this.posX-1,this.posY},{this.posX,this.posY},{this.posX,this.posY-1}};
+			break;
+			case 3: brick = new int[][]{{this.posX-1,this.posY-1},{this.posX,this.posY-1},{this.posX,this.posY},{this.posX+1,this.posY}};
+			break;
+			case 4: brick = new int[][]{{this.posX-1,this.posY+1},{this.posX-1,this.posY},{this.posX,this.posY},{this.posX,this.posY-1}};
+			break;
+			}
+		break;
 		}
 	}
 }
