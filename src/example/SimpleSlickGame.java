@@ -59,6 +59,7 @@ public class SimpleSlickGame extends BasicGame
 	{
 		ColorTrack = Long.caseNum;
 		fallSpeed += delta;
+		Long.update();
 		
 		if(fallSpeed/1000 == 1){
 			
