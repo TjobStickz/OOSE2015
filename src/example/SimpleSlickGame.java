@@ -118,35 +118,7 @@ public class SimpleSlickGame extends BasicGame
 		}
 		return true;
 	}
-	
-	public boolean sideTestLeft(){
-		for(int i = 0; i < 4; i++){
-			if(currentBrick[i][0] < 2){
-				return false;
-			}
-		}
-		return true;
-	}
-	
-	public boolean sideTestRight(){
-		for(int i = 0; i < 4; i++){
-			if(currentBrick[i][0] > grid.xRow.length -3){
-				return false;
-			}
-		}
-		return true;
-	}
-	
-	public boolean hitTestDown(){
-		for(int i = 0; i < 4; i++){
-			if(storage[currentBrick[i][1] + 1][currentBrick[i][0]] != 0){
-				return false;
-			}
-		}
-		return true;	
-	}
-	
-	
+		
 	public int randomInt(int max){
 		Random rand = new Random();
 		int randomNum;
