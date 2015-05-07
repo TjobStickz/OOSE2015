@@ -64,15 +64,13 @@ public class SimpleSlickGame extends BasicGame
 		if(fallSpeed/1000 == 1){
 			
 			if(fallTest() == true && hitTestDown() == true){
-			Long.posY += 1;
+				Long.posY += 1;
 			} else if(fallTest() == false || hitTestDown() == false ) {
-				
 				for(int i = 0; i < 4; i++){
-				storage[currentBrick[i][1]][currentBrick[i][0]] = ColorTrack;
+					storage[currentBrick[i][1]][currentBrick[i][0]] = ColorTrack;
 				}
 				currentBrick = null;
 			}
-			
 			fallSpeed = 0;
 		}
 	}
