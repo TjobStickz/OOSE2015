@@ -81,7 +81,6 @@ public class SimpleSlickGame extends BasicGame
 			for(int j = fullRow; j > 1; j--){
 				for(int i = 0; i < 12; i++){
 					storage[j][i] = storage[j-1][i];
-					System.out.println("woooooo");
 				}
 				moveRow = 0;
 				fullRow = 0;
@@ -254,7 +253,7 @@ public class SimpleSlickGame extends BasicGame
 	
 	public boolean rowTest(){
 		for(int j = 1; j <= 25; j++){
-			if((storage[j][1]) != 0 && (storage[j][2]) != 0 && (storage[j][3]) != 0 && (storage[j][4]) != 0 && (storage[j][5]) != 0 && (storage[j][6]) != 0 && (storage[j][7]) != 0 && (storage[j][8]) != 0 && (storage[j][9]) != 0 && (storage[j][10]) != 0){
+			if((storage[j][2]) != 0 && (storage[j][3]) != 0 && (storage[j][4]) != 0 && (storage[j][5]) != 0 && (storage[j][6]) != 0 && (storage[j][7]) != 0 && (storage[j][8]) != 0 && (storage[j][9]) != 0 && (storage[j][10]) != 0 && (storage[j][11]) != 0){
 				fullRow = j;
 				return true;
 			}
