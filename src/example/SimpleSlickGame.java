@@ -137,16 +137,6 @@ public class SimpleSlickGame extends BasicGame
 		return true;
 	}
 	
-	public boolean rowTest(){
-		for(int j = 1; j <= 25; j++){
-			if((storage[j][1]) != 0 && (storage[j][2]) != 0 && (storage[j][3]) != 0 && (storage[j][4]) != 0 && (storage[j][5]) != 0 && (storage[j][6]) != 0 && (storage[j][7]) != 0 && (storage[j][8]) != 0 && (storage[j][9]) != 0 && (storage[j][10]) != 0){
-				fullRow = j;
-				return true;
-			}
-		}
-		return false;
-	}
-	
 	public boolean hitTestDown(){
 		for(int i = 0; i < 4; i++){
 			if(storage[currentBrick[i][1] + 1][currentBrick[i][0]] != 0){
