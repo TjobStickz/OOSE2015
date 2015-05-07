@@ -88,7 +88,7 @@ public class SimpleSlickGame extends BasicGame
 		}
 		
 		
-		if(fallSpeed/1000 == 1){
+		if(fallSpeed/500 == 1){
 			
 			if(fallTest() == true && hitTestDown() == true){
 			Long.posY += 1;
