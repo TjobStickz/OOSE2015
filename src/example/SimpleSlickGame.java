@@ -105,7 +105,5 @@ public class SimpleSlickGame extends BasicGame
 				return false;
 			}
 		}
-		return true;
-	
-	
+		return true;	
 }
