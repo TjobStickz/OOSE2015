@@ -21,6 +21,10 @@ public class SimpleSlickGame extends BasicGame
 	tGrid grid;
 	brick Long;
 	
+	int[][] startBrick;
+	int[][] nextBrick;
+	int[][] currentBrick;
+	
 	public SimpleSlickGame(String gamename)
 	{
 		super(gamename);
@@ -31,6 +35,10 @@ public class SimpleSlickGame extends BasicGame
 	{
 		grid = new tGrid();
 		Long = new brick(xCor, yCor, caseType);
+		
+		nextBrick = Long.brick;
+		startBrick = Long.brick;
+		currentBrick = startBrick;
 	}
 
 	@Override
@@ -48,7 +56,11 @@ public class SimpleSlickGame extends BasicGame
 				grid.gridImg.draw(grid.xRow[j], grid.yRow[i]);
 			}
 		}
+		for(int i = 0; i < 4; i++)
+			Long.sQ.draw(Long.xRow[currentBrick[i][0]],Long.yRow[currentBrick[i][1]]);
 	}
+	
+	
 
 	public static void main(String[] args)
 	{

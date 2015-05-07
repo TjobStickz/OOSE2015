@@ -3,7 +3,7 @@ package example;
 import org.newdawn.slick.Image;
 import org.newdawn.slick.SlickException;
 
-public class brick {
+public class brick extends tGrid {
 	
 //	Create images and assign names.
 	public Image sQ;
