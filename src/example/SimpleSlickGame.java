@@ -88,7 +88,7 @@ public class SimpleSlickGame extends BasicGame
 			nextBrick = null;
 		}
 		if(nextBrick == null){
-			Long = new brick(xCor,yCor,caseType);
+			Long = new brick(xCor,yCor,randomInt(7));
 			nextBrick = Long.brick;
 		}
 		if(input.isKeyPressed(Input.KEY_A)){
