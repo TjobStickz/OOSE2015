@@ -158,7 +158,8 @@ public class SimpleSlickGame extends BasicGame
 //	This void renders and draws all of our visual images.
 	public void render(GameContainer gc, Graphics g) throws SlickException
 	{
-//		Drawing the grid depending on storage. If storage have no values, it draws the background grid. Else it draws stored bricks colors depending on what type of brick is stored
+//		Drawing the grid depending on storage. If storage have no values, it draws the background grid. 
+//		Else it draws stored bricks colors depending on what type of brick is stored.
 		for(int i = 4; i < grid.yRow.length - 2; i++){
 			for(int j = 2; j < grid.xRow.length -2; j++){
 				if(storage[i][j] == 0){
@@ -211,7 +212,7 @@ public class SimpleSlickGame extends BasicGame
 		}
 	}
 	
-//	Testing if the brick is all the way down, if yes returns false, if not returns true
+//	Testing if the brick is all the way down, if yes returns false, if not returns true.
 	public boolean fallTest(){
 		for(int i = 0; i < 4; i++){
 		if(currentBrick[i][1] >=  grid.yRow.length -3 ){
@@ -220,7 +221,7 @@ public class SimpleSlickGame extends BasicGame
 		}
 		return true;
 	}
-//	Testing if the brick is all the way to the left, if yes returns false, if not returns true
+//	Testing if the brick is all the way to the left, if yes returns false, if not returns true.
 	public boolean sideTestLeft(){
 		for(int i = 0; i < 4; i++){
 			if(currentBrick[i][0] < 3){
@@ -229,7 +230,7 @@ public class SimpleSlickGame extends BasicGame
 		}
 		return true;
 	}
-//	Testing if the brick is all the way to the right, if yes returns false, if not returns true
+//	Testing if the brick is all the way to the right, if yes returns false, if not returns true.
 	public boolean sideTestRight(){
 		for(int i = 0; i < 4; i++){
 			if(currentBrick[i][0] > grid.xRow.length -4){
@@ -249,7 +250,7 @@ public class SimpleSlickGame extends BasicGame
 		}
 		return false;
 	}
-//	Testing if current brick is on top of another brick
+//	Testing if current brick is on top of another brick.
 	public boolean hitTestDown(){
 		for(int i = 0; i < 4; i++){
 			if(storage[currentBrick[i][1] + 1][currentBrick[i][0]] != 0){
@@ -258,7 +259,7 @@ public class SimpleSlickGame extends BasicGame
 		}
 		return true;
 	}
-//	Testing if current brick is next to a placed brick on its Left side
+//	Testing if current brick is next to a placed brick on its Left side.
 	public boolean hitTestLeft(){
 		for(int i = 0; i < 4; i++){
 			if(storage[currentBrick[i][1]][currentBrick[i][0] - 1] != 0){
@@ -267,7 +268,7 @@ public class SimpleSlickGame extends BasicGame
 		}
 		return true;
 	}
-//	Testing if current brick is next to a placed brick on its right side
+//	Testing if current brick is next to a placed brick on its right side.
 	public boolean hitTestRight(){
 		for(int i = 0; i < 4; i++){
 			if(storage[currentBrick[i][1]][currentBrick[i][0] + 1] != 0){
@@ -285,7 +286,7 @@ public class SimpleSlickGame extends BasicGame
 		return randomNum;
 	}
 	
-//	This checks for the PhantomBrick position, if it is on top of another brick, or out of the play field its returns false. Else true
+//	This checks for the PhantomBrick position, if it is on top of another brick, or out of the play field its returns false. Else true.
 	public boolean turnCheck(){
 		for(int i = 0; i < 4; i++){
 			if(storage[PhantomBrick.brick[i][1]][PhantomBrick.brick[i][0]] != 0 || PhantomBrick.brick[i][0] > grid.xRow.length -3 || PhantomBrick.brick[i][0] < 2 || PhantomBrick.brick[i][1] >=  grid.yRow.length -2 ){
