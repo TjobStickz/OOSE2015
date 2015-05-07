@@ -60,6 +60,9 @@ public class SimpleSlickGame extends BasicGame
 		ColorTrack = Long.caseNum;
 		fallSpeed += delta;
 		Long.update();
+		currentBrick = Long.brick;
+		
+		Input input = gc.getInput();
 		
 		if(fallSpeed/1000 == 1){
 			
@@ -82,6 +85,31 @@ public class SimpleSlickGame extends BasicGame
 			Long = new brick(xCor,yCor,caseType);
 			nextBrick = Long.brick;
 		}
+		if(input.isKeyPressed(Input.KEY_A)){
+			
+			
+			if(sideTestLeft() == true && hitTestLeft())
+				
+			Long.posX -= 1;
+				
+		}
+		if(input.isKeyPressed(Input.KEY_D)){
+		
+			
+			if(sideTestRight() == true && hitTestRight() == true)
+				
+			Long.posX += 1;
+				
+		}
+		if(input.isKeyPressed(Input.KEY_S)){
+			
+			
+			if(fallTest() == true && hitTestDown() == true){
+				Long.posY += 1;
+			}
+				
+		}
+		
 		
 	}
 
@@ -151,6 +179,22 @@ public class SimpleSlickGame extends BasicGame
 	public boolean hitTestRight(){
 		for(int i = 0; i < 4; i++){
 			if(storage[currentBrick[i][1]][currentBrick[i][0] + 1] != 0){
+				return false;
+			}
+		}
+		return true;
+	}
+	public boolean sideTestRight(){
+		for(int i = 0; i < 4; i++){
+			if(currentBrick[i][0] > grid.xRow.length -4){
+				return false;
+			}
+		}
+		return true;
+	}
+	public boolean sideTestLeft(){
+		for(int i = 0; i < 4; i++){
+			if(currentBrick[i][0] < 3){
 				return false;
 			}
 		}
