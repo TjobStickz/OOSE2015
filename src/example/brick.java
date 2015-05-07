@@ -5,10 +5,10 @@ import org.newdawn.slick.SlickException;
 
 public class brick extends tGrid {
 	
-	// sQ stores the currentBricks Image (color of currentBrick)
+//	sQ stores the currentBricks Image (color of currentBrick).
 	public Image sQ;
 	
-	// sQ1 - sQ7 contains all different brick colors purpos for drawing them once stored in storage array in main.
+//	sQ1 to sQ7 contains all different brick colors purpos for drawing them once stored in storage array in main.
 	public Image sQ1;
 	public Image sQ2;
 	public Image sQ3;
@@ -17,22 +17,19 @@ public class brick extends tGrid {
 	public Image sQ6;
 	public Image sQ7;
 	
-	// variables for brick
+//	Variables for brick.
 	int posX = 2;
 	int posY = 2;
 	int caseNum;
 	int rotate;
 	
-	// 2D array storing X pos in first colum, Ypos in second colum 
+//	2D array storing X position in first column, Y position in second column.
 	int[][] brick; // [x][y] positions
 	
-	
-	
-	
-	//brick class constructor
+//	brick class constructor.
 	brick(int posX, int posY, int caseNum, int rotate) throws SlickException{
 		
-		// initializing variables for brick class
+//		Initializing variables for brick class.
 		this.rotate = rotate;
 		this.posX = posX;
 		this.posY = posY;
@@ -45,44 +42,60 @@ public class brick extends tGrid {
 		sQ6 = new Image ("data/ReverseDoggyMini.png");
 		sQ7 = new Image ("data/DoggyMini.png");
 		
-		// switch case system for brick types, 1 for each brickType
-		// Each brick consists of 4 positions, 1 standard position and 3 other positions shaping the bricks
+//		Switch case system for brick types, 1 for each brickType.
+//		Each brick consists of 4 positions, 1 standard position and 3 other positions shaping the bricks.
 		switch(this.caseNum){
-		case 1: // Long Piece
+		
+//		Long piece.
+		case 1:
 			brick = new int[][]{{this.posX,this.posY-2},{this.posX,this.posY-1},{this.posX,this.posY},{this.posX,this.posY+1}};
 			sQ = new Image ("data/LongDmini.png");
 		break;
-		case 2: // L Piece "left"
+		
+//		L piece "left".
+		case 2: 
 			brick = new int[][]{{this.posX,this.posY-2},{this.posX,this.posY-1},{this.posX,this.posY},{this.posX+1,this.posY}};
 			sQ = new Image ("data/6mini.png");
 		break;
-		case 3: // L Piece "right"
+		
+//		L piece "right".
+		case 3:
 			brick = new int[][]{{this.posX,this.posY-2},{this.posX,this.posY-1},{this.posX,this.posY},{this.posX-1,this.posY}};
 			sQ = new Image ("data/9mini.png");
 		break;
-		case 4: // T Piece
+		
+//		T piece.
+		case 4:
 			brick = new int[][]{{this.posX,this.posY-1},{this.posX-1,this.posY},{this.posX,this.posY},{this.posX+1,this.posY}};
 			sQ = new Image ("data/ThreesomeMini.png");
 		break;
-		case 5: // Square Piece
+		
+//		Square piece.
+		case 5:
 			brick = new int[][]{{this.posX-1,this.posY-1},{this.posX-1,this.posY},{this.posX,this.posY},{this.posX,this.posY-1}};
 			sQ = new Image ("data/Mini_Boob3.png");
 		break;
-		case 6: // S Piece
+		
+//		S piece.
+		case 6:
 			brick = new int[][]{{this.posX-1,this.posY},{this.posX+1,this.posY-1},{this.posX,this.posY},{this.posX,this.posY-1}};
 			sQ = new Image ("data/ReverseDoggyMini.png");
 		break;
-		case 7: // Z Piece
+		
+//		Z piece.
+		case 7:
 			brick = new int[][]{{this.posX-1,this.posY-1},{this.posX,this.posY-1},{this.posX,this.posY},{this.posX+1,this.posY}};
 			sQ = new Image ("data/DoggyMini.png");
 		break;
 		}
 	}
-	// a upates that constantly updates what bricks positions is.
+	
+//	Void update that constantly updates the position of brick.
 	public void update(){
-		// 
+		
+//		Long piece.
 		switch(this.caseNum){
-		case 1: // Long Piece
+		case 1:
 			switch(rotate){
 			case 1: brick = new int[][]{{this.posX,this.posY-2},{this.posX,this.posY-1},{this.posX,this.posY},{this.posX,this.posY+1}};
 			break;
@@ -94,7 +107,9 @@ public class brick extends tGrid {
 			break;
 			}
 		break;
-		case 2: // L Piece "left"
+		
+//		L piece "left".
+		case 2:
 			switch(rotate){
 			case 1: brick = new int[][]{{this.posX,this.posY-2},{this.posX,this.posY-1},{this.posX,this.posY},{this.posX-1,this.posY}};
 			break;
@@ -106,7 +121,9 @@ public class brick extends tGrid {
 			break;
 			}
 		break;
-		case 3: // L Piece "right"
+		
+//		L piece "right".
+		case 3:
 			switch(rotate){
 			case 1: brick = new int[][]{{this.posX,this.posY-2},{this.posX,this.posY-1},{this.posX,this.posY},{this.posX+1,this.posY}};
 			break;
@@ -118,7 +135,9 @@ public class brick extends tGrid {
 			break;
 			}
 		break;
-		case 4: // T Piece
+		
+//		T piece.
+		case 4:
 			switch(rotate){
 			case 1: brick = new int[][]{{this.posX,this.posY-1},{this.posX-1,this.posY},{this.posX,this.posY},{this.posX+1,this.posY}};
 			break;
@@ -130,7 +149,9 @@ public class brick extends tGrid {
 			break;
 			}
 		break;
-		case 5: // Square Piece
+		
+//		Square piece.
+		case 5:
 			switch(rotate){
 			case 1: brick = new int[][]{{this.posX-1,this.posY-1},{this.posX-1,this.posY},{this.posX,this.posY},{this.posX,this.posY-1}};
 			break;
@@ -142,7 +163,9 @@ public class brick extends tGrid {
 			break;
 			}
 		break;
-		case 6: // S Piece
+		
+//		S piece.
+		case 6:
 			switch(rotate){
 			case 1: brick = new int[][]{{this.posX-1,this.posY},{this.posX+1,this.posY-1},{this.posX,this.posY},{this.posX,this.posY-1}};
 			break;
@@ -154,7 +177,9 @@ public class brick extends tGrid {
 			break;
 			}
 		break;
-		case 7: // Z Piece
+		
+//		Z piece.
+		case 7:
 			switch(rotate){
 			case 1: brick = new int[][]{{this.posX-1,this.posY-1},{this.posX,this.posY-1},{this.posX,this.posY},{this.posX+1,this.posY}};
 			break;

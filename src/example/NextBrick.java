@@ -19,7 +19,6 @@ public class NextBrick{
 	public Image nB7;
 	
 	NextBrick() throws SlickException{
-
 		
 		nB1 = new Image ("data/LongD.png");
 		nB2 = new Image ("data/6.png");
@@ -30,10 +29,9 @@ public class NextBrick{
 		nB7 = new Image ("data/Doggy.png");
 		
 		Draw = nB1;
-		
-		
-		
+				
 	}
+	
 	public void check(){
 		
 		switch(caseNum){
