@@ -5,8 +5,10 @@ import org.newdawn.slick.SlickException;
 
 public class brick extends tGrid {
 	
-//	Create images and assign names.
+	// sQ stores the currentBricks Image (color of currentBrick)
 	public Image sQ;
+	
+	// sQ1 - sQ7 contains all different brick colors purpos for drawing them once stored in storage array in main.
 	public Image sQ1;
 	public Image sQ2;
 	public Image sQ3;
@@ -15,21 +17,26 @@ public class brick extends tGrid {
 	public Image sQ6;
 	public Image sQ7;
 	
-//	Variables for position, case number, and rotate.
+	// variables for brick
 	int posX = 2;
 	int posY = 2;
 	int caseNum;
-	int rotate = 1;
+	int rotate;
 	
-	int[][] brick;
+	// 2D array storing X pos in first colum, Ypos in second colum 
+	int[][] brick; // [x][y] positions
 	
-	brick(int posX, int posY, int caseNum) throws SlickException{
-			
+	
+	
+	
+	//brick class constructor
+	brick(int posX, int posY, int caseNum, int rotate) throws SlickException{
+		
+		// initializing variables for brick class
+		this.rotate = rotate;
 		this.posX = posX;
 		this.posY = posY;
 		this.caseNum = caseNum;
-		
-//		Assign images to variables.
 		sQ1 = new Image ("data/LongDmini.png");
 		sQ2 = new Image ("data/6mini.png");
 		sQ3 = new Image ("data/9mini.png");
@@ -38,6 +45,8 @@ public class brick extends tGrid {
 		sQ6 = new Image ("data/ReverseDoggyMini.png");
 		sQ7 = new Image ("data/DoggyMini.png");
 		
+		// switch case system for brick types, 1 for each brickType
+		// Each brick consists of 4 positions, 1 standard position and 3 other positions shaping the bricks
 		switch(this.caseNum){
 		case 1: // Long Piece
 			brick = new int[][]{{this.posX,this.posY-2},{this.posX,this.posY-1},{this.posX,this.posY},{this.posX,this.posY+1}};
@@ -69,7 +78,9 @@ public class brick extends tGrid {
 		break;
 		}
 	}
+	// a upates that constantly updates what bricks positions is.
 	public void update(){
+		// 
 		switch(this.caseNum){
 		case 1: // Long Piece
 			switch(rotate){
