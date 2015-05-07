@@ -62,6 +62,10 @@ public class brick {
 			brick = new int[][]{{this.posX-1,this.posY},{this.posX+1,this.posY-1},{this.posX,this.posY},{this.posX,this.posY-1}};
 			sQ = new Image ("data/ReverseDoggyMini.png");
 		break;
+		case 7: // Z Piece
+			brick = new int[][]{{this.posX-1,this.posY-1},{this.posX,this.posY-1},{this.posX,this.posY},{this.posX+1,this.posY}};
+			sQ = new Image ("data/DoggyMini.png");
+		break;
 		}
 	}
 }
