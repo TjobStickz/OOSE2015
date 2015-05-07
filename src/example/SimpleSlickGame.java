@@ -43,8 +43,8 @@ public class SimpleSlickGame extends BasicGame
 	{
 		
 //		Draw Tetris grid.
-		for(int i = 4; i < grid.yRow.length - 1; i++){
-			for(int j = i; j < grid.xRow.length - 1; j++){
+		for(int i = 4; i < grid.yRow.length - 2; i++){
+			for(int j = 2; j < grid.xRow.length - 2; j++){
 				grid.gridImg.draw(grid.xRow[j], grid.yRow[i]);
 			}
 		}
