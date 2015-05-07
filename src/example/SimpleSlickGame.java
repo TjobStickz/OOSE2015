@@ -69,6 +69,25 @@ public class SimpleSlickGame extends BasicGame
 		
 		Input input = gc.getInput();
 		
+		if(rowTest() == true){
+		if(fullRow != 0){
+			for(int i = 0; i < 12; i++){
+				storage[fullRow][i] = 0;
+				moveRow = 1;
+				}
+			}
+		}
+		if(moveRow == 1){
+			for(int j = fullRow; j > 1; j--){
+				for(int i = 0; i < 12; i++){
+					storage[j][i] = storage[j-1][i];
+					System.out.println("woooooo");
+				}
+				moveRow = 0;
+				fullRow = 0;
+			}
+		}
+		
 		if(fallSpeed/1000 == 1){
 			
 			if(fallTest() == true && hitTestDown() == true){
@@ -231,6 +250,16 @@ public class SimpleSlickGame extends BasicGame
 			}
 		}
 		return true;
+	}
+	
+	public boolean rowTest(){
+		for(int j = 1; j <= 25; j++){
+			if((storage[j][1]) != 0 && (storage[j][2]) != 0 && (storage[j][3]) != 0 && (storage[j][4]) != 0 && (storage[j][5]) != 0 && (storage[j][6]) != 0 && (storage[j][7]) != 0 && (storage[j][8]) != 0 && (storage[j][9]) != 0 && (storage[j][10]) != 0){
+				fullRow = j;
+				return true;
+			}
+		}
+		return false;
 	}
 		
 	public int randomInt(int max){
