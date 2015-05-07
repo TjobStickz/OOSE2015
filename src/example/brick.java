@@ -42,6 +42,10 @@ public class brick {
 			brick = new int[][]{{this.posX,this.posY-2},{this.posX,this.posY-1},{this.posX,this.posY},{this.posX+1,this.posY}};
 			sQ = new Image ("data/6mini.png");
 		break;
+		case 3: // L Piece "right"
+			brick = new int[][]{{this.posX,this.posY-2},{this.posX,this.posY-1},{this.posX,this.posY},{this.posX-1,this.posY}};
+			sQ = new Image ("data/9mini.png");
+		break;
 		}
 	}
 }
