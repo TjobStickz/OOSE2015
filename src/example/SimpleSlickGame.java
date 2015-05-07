@@ -78,7 +78,6 @@ public class SimpleSlickGame extends BasicGame
 			
 			if(sideTestLeft() == true && hitTestLeft())
 			Long.posX -= 1;
-			
 				
 		}
 		if(input.isKeyPressed(Input.KEY_D)){
