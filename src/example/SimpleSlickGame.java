@@ -7,8 +7,6 @@ import org.newdawn.slick.AppGameContainer;
 import org.newdawn.slick.BasicGame;
 import org.newdawn.slick.GameContainer;
 import org.newdawn.slick.Graphics;
-import org.newdawn.slick.Image;
-import org.newdawn.slick.Input;
 import org.newdawn.slick.SlickException;
 
 public class SimpleSlickGame extends BasicGame
@@ -72,27 +70,10 @@ public class SimpleSlickGame extends BasicGame
 				currentBrick = null;
 			}
 			fallSpeed = 0;
-		}
-		
-		if(input.isKeyPressed(Input.KEY_A)){
 			
-			if(sideTestLeft() == true && hitTestLeft())
-			Long.posX -= 1;
-				
-		}
-		if(input.isKeyPressed(Input.KEY_D)){
-			
-			if(sideTestRight() == true && hitTestRight() == true)
-			Long.posX += 1;
-				
-		}
-		if(input.isKeyPressed(Input.KEY_S)){
-			
-			if(fallTest() == true && hitTestDown() == true){
-				Long.posY += 1;
 			}	
 		}
-	}
+
 
 	@Override
 	public void render(GameContainer gc, Graphics g) throws SlickException
