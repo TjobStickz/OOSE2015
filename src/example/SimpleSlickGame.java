@@ -1,4 +1,5 @@
 package example;
+import java.util.Random;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
@@ -12,6 +13,11 @@ import org.newdawn.slick.SlickException;
 
 public class SimpleSlickGame extends BasicGame
 {
+	
+	int xCor = 7;
+	int yCor = 5;
+	int caseType = randomInt(7);
+	
 	tGrid grid;
 	brick Long;
 	
@@ -24,7 +30,7 @@ public class SimpleSlickGame extends BasicGame
 	public void init(GameContainer gc) throws SlickException 
 	{
 		grid = new tGrid();
-		Long = new brick(xCor, yCor, caseType)
+		Long = new brick(xCor, yCor, caseType);
 	}
 
 	@Override
@@ -62,4 +68,13 @@ public class SimpleSlickGame extends BasicGame
 			Logger.getLogger(SimpleSlickGame.class.getName()).log(Level.SEVERE, null, ex);
 		}
 	}
+	
+	public int randomInt(int max){
+		Random rand = new Random();
+		int randomNum;
+		randomNum = rand.nextInt(max)+1;
+		return randomNum;
+	}
+	
+	
 }
