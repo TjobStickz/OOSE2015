@@ -17,7 +17,7 @@ public class tGrid{
 	tGrid() throws SlickException{
 		
 		posX = 150;
-		posY = 170;
+		posY = 150;
 		
 		//initialize grid at posX, posY . for every 18 pix draw a new square of the grid
 		for(int i = 0; i < xRow.length; i++ )
