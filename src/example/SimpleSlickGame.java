@@ -73,6 +73,16 @@ public class SimpleSlickGame extends BasicGame
 			}
 			fallSpeed = 0;
 		}
+		
+		if(currentBrick == null){
+			currentBrick = nextBrick;
+			nextBrick = null;
+		}
+		if(nextBrick == null){
+			Long = new brick(xCor,yCor,caseType);
+			nextBrick = Long.brick;
+		}
+		
 	}
 
 	@Override
