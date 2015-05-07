@@ -81,6 +81,17 @@ public class SimpleSlickGame extends BasicGame
 		}
 	}
 	
+	public boolean fallTest(){
+		for(int i = 0; i < 4; i++){
+			if(currentBrick[i][1] >=  grid.yRow.length -2 ){
+				return false;
+			} 
+		}
+		return true;
+	}
+	
+	
+	
 	public int randomInt(int max){
 		Random rand = new Random();
 		int randomNum;
