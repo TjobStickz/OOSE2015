@@ -36,6 +36,7 @@ public class brick {
 		sQ4 = new Image ("data/ThreesomeMini.png");
 		sQ5 = new Image ("data/Mini_Boob3.png");
 		sQ6 = new Image ("data/ReverseDoggyMini.png");
+		sQ7 = new Image ("data/DoggyMini.png");
 		
 		switch(this.caseNum){
 		case 1: // Long Piece
