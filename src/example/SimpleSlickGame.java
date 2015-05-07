@@ -57,6 +57,11 @@ public class SimpleSlickGame extends BasicGame
 	@Override
 	public void update(GameContainer gc, int delta) throws SlickException 
 	{
+		Long.update();
+		if(refresh){
+			currentBrick = Long.brick;
+		}
+		
 		ColorTrack = Long.caseNum;
 		fallSpeed += delta;
 		Long.update();
@@ -108,9 +113,19 @@ public class SimpleSlickGame extends BasicGame
 			if(fallTest() == true && hitTestDown() == true){
 				Long.posY += 1;
 			}
-				
 		}
 		
+		if(input.isKeyPressed(Input.KEY_W)){
+			if(Long.rotate == 1){
+				Long.rotate = 2;
+			} else if(Long.rotate == 2) {
+				Long.rotate = 3;
+			} else if(Long.rotate == 3) {
+				Long.rotate = 4;
+			} else {
+				Long.rotate = 1;
+			}
+		}
 		
 	}
 
