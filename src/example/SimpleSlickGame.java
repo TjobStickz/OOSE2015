@@ -2,10 +2,12 @@ package example;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import java.util.Random;
+
 import org.newdawn.slick.AppGameContainer;
 import org.newdawn.slick.BasicGame;
 import org.newdawn.slick.GameContainer;
 import org.newdawn.slick.Graphics;
+import org.newdawn.slick.Image;
 import org.newdawn.slick.Input;
 import org.newdawn.slick.SlickException;
 
@@ -14,14 +16,19 @@ public class SimpleSlickGame extends BasicGame
 	tGrid grid;
 	brick Long;
 	brick PhantomBrick;
+	NextBrick NextBrickImage;
+	Image Border;
 	
 	int xCor = 7;
 	int yCor = 5;
 	int fallSpeed = 0;
 	int caseType = randomInt(7);
+	int nextType = randomInt(7);
 	int ColorTrack;
 	int rotationTestCase = 2;
-	//public boolean refresh = true;
+	
+	int score = 0;
+	int lines = 0;
 	
 	int[][] storage = new int[28][14];
 	int[][] startBrick;
@@ -44,9 +51,12 @@ public class SimpleSlickGame extends BasicGame
 			}
 		}
 		
+		Border = new Image("data/Grid_border_tina.png");
 		grid = new tGrid();
 		Long = new brick(xCor,yCor,caseType, 1);
+		
 		PhantomBrick = new brick(xCor,yCor, caseType, 2);
+		NextBrickImage = new NextBrick();
 		
 		nextBrick = Long.brick;
 		startBrick = Long.brick;
@@ -56,10 +66,12 @@ public class SimpleSlickGame extends BasicGame
 	public void update(GameContainer gc, int delta) throws SlickException {
 		Long.update();
 		PhantomBrick.update();
+		NextBrickImage.check();
 		
+		NextBrickImage.caseNum = nextType;
 		currentBrick = Long.brick;
 
-		System.out.println(turnCheck());
+		System.out.println(currentBrick[1][1]);
 		
 		
 		
@@ -81,62 +93,63 @@ public class SimpleSlickGame extends BasicGame
 			for(int j = fullRow; j > 1; j--){
 				for(int i = 0; i < 12; i++){
 					storage[j][i] = storage[j-1][i];
-				}
-				moveRow = 0;
-				fullRow = 0;
+				}	
 			}
+			moveRow = 0;
+			fullRow = 0;
+			score += 1000;
+			lines += 1;
 		}
-		
-		
 		if(fallSpeed/500 == 1){
-			
 			if(fallTest() == true && hitTestDown() == true){
 			Long.posY += 1;
+			score += 10;
 			} else if(fallTest() == false || hitTestDown() == false ) {
-				
 				for(int i = 0; i < 4; i++){
 				storage[currentBrick[i][1]][currentBrick[i][0]] = ColorTrack;
 				}
-				currentBrick = null;
-			}
 			
+				currentBrick = null;
+				
+				
+			}
 			fallSpeed = 0;
 		}
 		
 		if(currentBrick == null){
-			currentBrick = nextBrick;
+			
+			Long.brick = nextBrick;
+			currentBrick = Long.brick;
 			nextBrick = null;
 		}
+		
+		
 		if(nextBrick == null){
-			Long = new brick(xCor,yCor,randomInt(7), 1);
+			int currentType = nextType;
+			Long = new brick(xCor,yCor,currentType, 1);
 			nextBrick = Long.brick;
+			
+			nextType = randomInt(7);
+			
 		}
+		
+	
 		
 		if(input.isKeyPressed(Input.KEY_A)){
-			
-			
 			if(sideTestLeft() == true && hitTestLeft())
-				
 			Long.posX -= 1;
-				
 		}
 		if(input.isKeyPressed(Input.KEY_D)){
-		
-			
-			if(sideTestRight() == true && hitTestRight() == true)
-				
-			Long.posX += 1;
-				
-		}
-		if(input.isKeyPressed(Input.KEY_S)){
-			
-			
-			if(fallTest() == true && hitTestDown() == true){
-				Long.posY += 1;
-			}
-				
+			if(sideTestRight() == true && hitTestRight() == true)	
+			Long.posX += 1;	
 		}
 		
+		if(input.isKeyDown(Input.KEY_S)){
+			fallSpeed += 10;
+//			if(fallTest() == true && hitTestDown() == true){
+//				Long.posY += 1;
+//			}	
+		}	
 		// 
 		if(input.isKeyPressed(Input.KEY_W)){
 			if(turnCheck() == true){
@@ -153,9 +166,6 @@ public class SimpleSlickGame extends BasicGame
 			}
 		}
 		follow();
-		
-		
-		
 	}
 
 	@Override
@@ -186,8 +196,14 @@ public class SimpleSlickGame extends BasicGame
 		}
 		// Draws the current brick depending on currentBricks position within the grid.
 		for(int i = 0; i < 4; i++)
-		Long.sQ.draw(Long.xRow[currentBrick[i][0]],Long.yRow[currentBrick[i][1]]);
+		Long.sQ.draw(Long.xRow[currentBrick[i][0]],Long.yRow[currentBrick[i][1]]);	
+		NextBrickImage.Draw.drawCentered(250.0f, 40.0f);
 		
+		Border.draw(0,0);
+		g.drawString("Score :", 209, 150);
+		g.drawString(" " + score, 200,170);
+		g.drawString("Lines :", 209, 200);
+		g.drawString(" " + lines, 200,220);
 	}
 	public static void main(String[] args)
 	{
@@ -199,7 +215,7 @@ public class SimpleSlickGame extends BasicGame
 			appgc = new AppGameContainer(new SimpleSlickGame("Tetris"));
 			appgc.setShowFPS(false);
 			appgc.setTargetFrameRate(1000);
-			appgc.setDisplayMode(540, 720, false);		
+			appgc.setDisplayMode(290, 436, false);		
 			appgc.start();
 			
 		}
@@ -254,7 +270,6 @@ public class SimpleSlickGame extends BasicGame
 			}
 		}
 		return true;
-		
 	}
 	// Testing if current brick is next to a placed brick on its Left side
 	public boolean hitTestLeft(){
@@ -264,7 +279,6 @@ public class SimpleSlickGame extends BasicGame
 			}
 		}
 		return true;
-		
 	}
 	// Testing if current brick is next to a placed brick on its right side
 	public boolean hitTestRight(){
@@ -274,7 +288,6 @@ public class SimpleSlickGame extends BasicGame
 			}
 		}
 		return true;
-		
 	}
 	// Random funktion used to randomize what brick is next
 	public int randomInt(int max){
@@ -291,7 +304,6 @@ public class SimpleSlickGame extends BasicGame
 			}
 		}
 		return true;
-		
 	}
 	//function that updates PhantomBrick.Brick so it is similar to CurrentBrick, but the case number of rotate is 1 higher.
 	//So we can check for the next rotate(if there is space).
