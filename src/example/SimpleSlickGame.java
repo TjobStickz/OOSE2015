@@ -73,6 +73,26 @@ public class SimpleSlickGame extends BasicGame
 			}
 			fallSpeed = 0;
 		}
+		
+		if(input.isKeyPressed(Input.KEY_A)){
+			
+			if(sideTestLeft() == true && hitTestLeft())
+			Long.posX -= 1;
+			
+				
+		}
+		if(input.isKeyPressed(Input.KEY_D)){
+			
+			if(sideTestRight() == true && hitTestRight() == true)
+			Long.posX += 1;
+				
+		}
+		if(input.isKeyPressed(Input.KEY_S)){
+			
+			if(fallTest() == true && hitTestDown() == true){
+				Long.posY += 1;
+			}	
+		}
 	}
 
 	@Override
