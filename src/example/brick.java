@@ -119,6 +119,18 @@ public class brick extends tGrid {
 			break;
 			}
 		break;
+		case 5: // Square Piece
+			switch(rotate){
+			case 1: brick = new int[][]{{this.posX-1,this.posY-1},{this.posX-1,this.posY},{this.posX,this.posY},{this.posX,this.posY-1}};
+			break;
+			case 2: brick = new int[][]{{this.posX-1,this.posY-1},{this.posX-1,this.posY},{this.posX,this.posY},{this.posX,this.posY-1}};
+			break;
+			case 3: brick = new int[][]{{this.posX-1,this.posY-1},{this.posX-1,this.posY},{this.posX,this.posY},{this.posX,this.posY-1}};
+			break;
+			case 4: brick = new int[][]{{this.posX-1,this.posY-1},{this.posX-1,this.posY},{this.posX,this.posY},{this.posX,this.posY-1}};
+			break;
+			}
+		break;
 		}
 	}
 }
