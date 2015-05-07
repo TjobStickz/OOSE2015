@@ -99,5 +99,13 @@ public class SimpleSlickGame extends BasicGame
 		return randomNum;
 	}
 	
+	public boolean hitTestDown(){
+		for(int i = 0; i < 4; i++){
+			if(storage[currentBrick[i][1] + 1][currentBrick[i][0]] != 0){
+				return false;
+			}
+		}
+		return true;
+	
 	
 }
