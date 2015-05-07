@@ -19,6 +19,8 @@ public class SimpleSlickGame extends BasicGame
 	int fallSpeed = 0;
 	int caseType = randomInt(7);
 	int ColorTrack;
+	int rotation = 1;
+	public boolean refresh = true;
 	
 	tGrid grid;
 	brick Long;
@@ -27,6 +29,8 @@ public class SimpleSlickGame extends BasicGame
 	int[][] startBrick;
 	int[][] nextBrick;
 	int[][] currentBrick;
+	int fullRow;
+	int moveRow;
 	
 	public SimpleSlickGame(String gamename)
 	{
@@ -36,6 +40,12 @@ public class SimpleSlickGame extends BasicGame
 	@Override
 	public void init(GameContainer gc) throws SlickException 
 	{
+		for(int i = 0; i < 27; i++){
+			for(int j = 0; j < 12; j++){
+				storage[i][j] = 0;
+			}
+		}
+		
 		grid = new tGrid();
 		Long = new brick(xCor, yCor, caseType);
 		
@@ -110,15 +120,6 @@ public class SimpleSlickGame extends BasicGame
 		return true;
 	}
 	
-	
-	
-	public int randomInt(int max){
-		Random rand = new Random();
-		int randomNum;
-		randomNum = rand.nextInt(max)+1;
-		return randomNum;
-	}
-	
 	public boolean hitTestDown(){
 		for(int i = 0; i < 4; i++){
 			if(storage[currentBrick[i][1] + 1][currentBrick[i][0]] != 0){
@@ -126,5 +127,12 @@ public class SimpleSlickGame extends BasicGame
 			}
 		}
 		return true;	
+	}
+	
+	public int randomInt(int max){
+		Random rand = new Random();
+		int randomNum;
+		randomNum = rand.nextInt(max)+1;
+		return randomNum;
 	}
 }
