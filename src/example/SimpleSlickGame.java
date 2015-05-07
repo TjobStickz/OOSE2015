@@ -136,7 +136,23 @@ public class SimpleSlickGame extends BasicGame
 //		Draw Tetris grid.
 		for(int i = 4; i < grid.yRow.length - 2; i++){
 			for(int j = 2; j < grid.xRow.length - 2; j++){
-				grid.gridImg.draw(grid.xRow[j], grid.yRow[i]);
+				if(storage[i][j] == 0){
+					grid.gridImg.draw(grid.xRow[j],grid.yRow[i]);
+					} else if(storage[i][j] == 1){
+						Long.sQ1.draw(grid.xRow[j],grid.yRow[i]);
+					} else if(storage[i][j] == 2){
+						Long.sQ2.draw(grid.xRow[j],grid.yRow[i]);
+					} else if(storage[i][j] == 3){
+						Long.sQ3.draw(grid.xRow[j],grid.yRow[i]);
+					} else if(storage[i][j] == 4){
+						Long.sQ4.draw(grid.xRow[j],grid.yRow[i]);
+					} else if(storage[i][j] == 5){
+						Long.sQ5.draw(grid.xRow[j],grid.yRow[i]);
+					} else if(storage[i][j] == 6){
+						Long.sQ6.draw(grid.xRow[j],grid.yRow[i]);
+					} else if(storage[i][j] == 7){
+						Long.sQ7.draw(grid.xRow[j],grid.yRow[i]);
+					}
 			}
 		}
 		for(int i = 0; i < 4; i++)
@@ -166,7 +182,7 @@ public class SimpleSlickGame extends BasicGame
 	
 	public boolean fallTest(){
 		for(int i = 0; i < 4; i++){
-			if(currentBrick[i][1] >=  grid.yRow.length -2 ){
+			if(currentBrick[i][1] >=  grid.yRow.length -3 ){
 				return false;
 			} 
 		}
