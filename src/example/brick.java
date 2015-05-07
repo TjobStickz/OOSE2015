@@ -31,11 +31,16 @@ public class brick {
 		
 //		Assign images to variables.
 		sQ1 = new Image ("data/LongDmini.png");
+		sQ2 = new Image ("data/6mini.png");
 		
 		switch(this.caseNum){
 		case 1: // Long Piece
 			brick = new int[][]{{this.posX,this.posY-2},{this.posX,this.posY-1},{this.posX,this.posY},{this.posX,this.posY+1}};
 			sQ = new Image ("data/LongDmini.png");
+		break;
+		case 2: // L Piece "left"
+			brick = new int[][]{{this.posX,this.posY-2},{this.posX,this.posY-1},{this.posX,this.posY},{this.posX+1,this.posY}};
+			sQ = new Image ("data/6mini.png");
 		break;
 		}
 	}
