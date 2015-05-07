@@ -40,8 +40,8 @@ public class SimpleSlickGame extends BasicGame
 	@Override
 	public void init(GameContainer gc) throws SlickException 
 	{
-		for(int i = 0; i < 27; i++){
-			for(int j = 0; j < 12; j++){
+		for(int i = 0; i < 28; i++){
+			for(int j = 0; j < 14; j++){
 				storage[i][j] = 0;
 			}
 		}
