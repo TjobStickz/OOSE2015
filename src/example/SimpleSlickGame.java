@@ -219,6 +219,7 @@ public class SimpleSlickGame extends BasicGame
 		g.drawString("Lines :", 209, 200);
 		g.drawString(" " + lines, 200,220);
 		
+		// if lost = true draws game over, and a string.
 		if(lost == true) {
 			l0st.drawCentered(110, 212);
 			g.drawString("Press Enter to replay", 25, 240);
