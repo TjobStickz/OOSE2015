@@ -134,7 +134,7 @@ public class SimpleSlickGame extends BasicGame
 			Long.posX += 1;	
 		}
 		
-		if(input.isKeyDown(Input.KEY_S) || input.isKeyPressed(Input.KEY_DOWN)){
+		if(input.isKeyDown(Input.KEY_S) || input.isKeyDown(Input.KEY_DOWN)){
 			fallSpeed += 10;
 		}	
 		
