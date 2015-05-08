@@ -20,13 +20,13 @@ public class NextBrick{
 	
 	NextBrick() throws SlickException{
 		
-		nB1 = new Image ("data/LongD.png");
-		nB2 = new Image ("data/6.png");
-		nB3 = new Image ("data/9.png");
-		nB4 = new Image ("data/Threesome.png");
-		nB5 = new Image ("data/Boob.png");
-		nB6 = new Image ("data/ReverseDoggy.png");
-		nB7 = new Image ("data/Doggy.png");
+		nB1 = new Image ("src/data/LongD.png");
+		nB2 = new Image ("src/data/6.png");
+		nB3 = new Image ("src/data/9.png");
+		nB4 = new Image ("src/data/Threesome.png");
+		nB5 = new Image ("src/data/Boob.png");
+		nB6 = new Image ("src/data/ReverseDoggy.png");
+		nB7 = new Image ("src/data/Doggy.png");
 		
 		Draw = nB1;
 				

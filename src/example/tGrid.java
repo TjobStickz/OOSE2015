@@ -27,7 +27,7 @@ public class tGrid{
 			yRow[i] = posY + (i*18);
 		
 //		Grids image ("every square" of the grid beeing 18x18 pix").
-		gridImg = new Image("data/BlackTest.png");
+		gridImg = new Image("src/data/BlackTest.png");
 		
 	}
 

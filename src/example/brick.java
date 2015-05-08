@@ -34,13 +34,13 @@ public class brick extends tGrid {
 		this.posX = posX;
 		this.posY = posY;
 		this.caseNum = caseNum;
-		sQ1 = new Image ("data/LongDmini.png");
-		sQ2 = new Image ("data/6mini.png");
-		sQ3 = new Image ("data/9mini.png");
-		sQ4 = new Image ("data/ThreesomeMini.png");
-		sQ5 = new Image ("data/Mini_Boob3.png");
-		sQ6 = new Image ("data/ReverseDoggyMini.png");
-		sQ7 = new Image ("data/DoggyMini.png");
+		sQ1 = new Image ("src/data/LongDmini.png");
+		sQ2 = new Image ("src/data/6mini.png");
+		sQ3 = new Image ("src/data/9mini.png");
+		sQ4 = new Image ("src/data/ThreesomeMini.png");
+		sQ5 = new Image ("src/data/Mini_Boob3.png");
+		sQ6 = new Image ("src/data/ReverseDoggyMini.png");
+		sQ7 = new Image ("src/data/DoggyMini.png");
 		
 //		Switch case system for brick types, 1 for each brickType.
 //		Each brick consists of 4 positions, 1 standard position and 3 other positions shaping the bricks.
@@ -49,43 +49,43 @@ public class brick extends tGrid {
 //		Long piece.
 		case 1:
 			brick = new int[][]{{this.posX,this.posY-2},{this.posX,this.posY-1},{this.posX,this.posY},{this.posX,this.posY+1}};
-			sQ = new Image ("data/LongDmini.png");
+			sQ = new Image ("src/data/LongDmini.png");
 		break;
 		
 //		L piece "left".
 		case 2: 
 			brick = new int[][]{{this.posX,this.posY-2},{this.posX,this.posY-1},{this.posX,this.posY},{this.posX+1,this.posY}};
-			sQ = new Image ("data/6mini.png");
+			sQ = new Image ("src/data/6mini.png");
 		break;
 		
 //		L piece "right".
 		case 3:
 			brick = new int[][]{{this.posX,this.posY-2},{this.posX,this.posY-1},{this.posX,this.posY},{this.posX-1,this.posY}};
-			sQ = new Image ("data/9mini.png");
+			sQ = new Image ("src/data/9mini.png");
 		break;
 		
 //		T piece.
 		case 4:
 			brick = new int[][]{{this.posX,this.posY-1},{this.posX-1,this.posY},{this.posX,this.posY},{this.posX+1,this.posY}};
-			sQ = new Image ("data/ThreesomeMini.png");
+			sQ = new Image ("src/data/ThreesomeMini.png");
 		break;
 		
 //		Square piece.
 		case 5:
 			brick = new int[][]{{this.posX-1,this.posY-1},{this.posX-1,this.posY},{this.posX,this.posY},{this.posX,this.posY-1}};
-			sQ = new Image ("data/Mini_Boob3.png");
+			sQ = new Image ("src/data/Mini_Boob3.png");
 		break;
 		
 //		S piece.
 		case 6:
 			brick = new int[][]{{this.posX-1,this.posY},{this.posX+1,this.posY-1},{this.posX,this.posY},{this.posX,this.posY-1}};
-			sQ = new Image ("data/ReverseDoggyMini.png");
+			sQ = new Image ("src/data/ReverseDoggyMini.png");
 		break;
 		
 //		Z piece.
 		case 7:
 			brick = new int[][]{{this.posX-1,this.posY-1},{this.posX,this.posY-1},{this.posX,this.posY},{this.posX+1,this.posY}};
-			sQ = new Image ("data/DoggyMini.png");
+			sQ = new Image ("src/data/DoggyMini.png");
 		break;
 		}
 	}
