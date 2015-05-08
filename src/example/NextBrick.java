@@ -5,11 +5,14 @@ import org.newdawn.slick.SlickException;
 
 public class NextBrick{
 	
+//	Position and caseNum.
 	int x,y;
 	int caseNum;
 	
+//	Variable to draw the loaded images.
 	public Image Draw;
 	
+//	Image variables named.
 	public Image nB1;
 	public Image nB2;
 	public Image nB3;
@@ -34,6 +37,7 @@ public class NextBrick{
 	
 	public void check(){
 		
+//		Switch-case that draws each of the images.
 		switch(caseNum){
 		case 1: Draw = nB1;
 		break;

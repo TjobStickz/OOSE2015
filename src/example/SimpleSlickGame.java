@@ -91,14 +91,13 @@ public class SimpleSlickGame extends BasicGame
 		NextBrickImage.caseNum = nextType;
 		currentBrick = Long.brick;
 
-//		Print line of current brick to the console.
 		System.out.println(currentBrick[1][1]);
 				
 		ColorTrack = Long.caseNum;
 		fallSpeed += delta;
 		
 		
-				
+//		Checks for full rows.
 		if(rowTest() == true) {
 			if(fullRow != 0) {
 				for(int i = 0; i < 12; i++){
@@ -108,6 +107,7 @@ public class SimpleSlickGame extends BasicGame
 			}
 		}
 		
+//		Triggers when a row is full and moves all above rows 1 row down.
 		if(moveRow == 1){
 			for(int j = fullRow; j > 1; j--)
 				for(int i = 0; i < 12; i++)
@@ -118,6 +118,7 @@ public class SimpleSlickGame extends BasicGame
 			lines += 1;
 		}
 		
+//		Checks for a collision with anything below currentBrick, and stops it when a collision is detected.
 		if(fallSpeed/500 == 1){
 			if(fallTest() == true && hitTestDown() == true){
 				Long.posY += 1;
@@ -131,44 +132,47 @@ public class SimpleSlickGame extends BasicGame
 			fallSpeed = 0;
 		}
 		
-		
+//		These if-statements check which brick is currently in play, and which will be the next brick to spawn.
 		if(currentBrick == null){
 			Long.brick = nextBrick;
 			currentBrick = Long.brick;
 			nextBrick = null;
 		}
-		
 		if(nextBrick == null){
 			int currentType = nextType;
 			Long = new brick(xCor,yCor,currentType, 1);
 			nextBrick = Long.brick;
 			nextType = randomInt(7);
 		}
-				
+		
+//		Input controls. Very simple WASD or arrow keys.
+//		Also checks for collision to the sides of the current brick.
 		if(input.isKeyPressed(Input.KEY_A) || input.isKeyPressed(Input.KEY_LEFT)){
 			if(sideTestLeft() == true && hitTestLeft())
-			Long.posX -= 1;
-		}
-		if(input.isKeyPressed(Input.KEY_D) || input.isKeyPressed(Input.KEY_RIGHT)){
-			if(sideTestRight() == true && hitTestRight() == true)	
-			Long.posX += 1;	
+				Long.posX -= 1;
 		}
 		
+		if(input.isKeyPressed(Input.KEY_D) || input.isKeyPressed(Input.KEY_RIGHT)){
+			if(sideTestRight() == true && hitTestRight() == true)	
+				Long.posX += 1;	
+		}
+		
+//		Causes the current brick to fall faster.
 		if(input.isKeyDown(Input.KEY_S) || input.isKeyDown(Input.KEY_DOWN)){
 			fallSpeed += 10;
 		}	
 		
+//		Rotates the current brick. Checks for room to rotate, and if there isn't it will not rotate.
 		if(input.isKeyPressed(Input.KEY_W) || input.isKeyPressed(Input.KEY_UP)){
 			if(turnCheck() == true){
-				if(Long.rotate == 1){
+				if(Long.rotate == 1)
 					Long.rotate = 2;
-				} else if(Long.rotate == 2) {
+				else if(Long.rotate == 2)
 					Long.rotate = 3;
-				} else if(Long.rotate == 3) {
+				else if(Long.rotate == 3)
 					Long.rotate = 4;
-				} else {
+				else
 					Long.rotate = 1;
-				}
 			}
 		}
 		follow();
@@ -213,14 +217,12 @@ public class SimpleSlickGame extends BasicGame
 			Long.sQ.draw(Long.xRow[currentBrick[i][0]],Long.yRow[currentBrick[i][1]]);	
 		NextBrickImage.Draw.drawCentered(245.0f, 65.0f);
 		
-		// Drawing border + Score and lines
 		Border.draw(0,0);
 		g.drawString("Score :", 209, 150);
 		g.drawString(" " + score, 200,170);
 		g.drawString("Lines :", 209, 200);
 		g.drawString(" " + lines, 200,220);
 		
-		// if lost = true draws game over, and a string.
 		if(lost == true) {
 			l0st.drawCentered(110, 212);
 			g.drawString("Press Enter to replay", 25, 240);
@@ -254,6 +256,7 @@ public class SimpleSlickGame extends BasicGame
 		}
 		return true;
 	}
+	
 //	Testing if the brick is all the way to the left, if yes returns false, if not returns true.
 	public boolean sideTestLeft(){
 		for(int i = 0; i < 4; i++){
@@ -263,6 +266,7 @@ public class SimpleSlickGame extends BasicGame
 		}
 		return true;
 	}
+	
 //	Testing if the brick is all the way to the right, if yes returns false, if not returns true.
 	public boolean sideTestRight(){
 		for(int i = 0; i < 4; i++){
@@ -272,6 +276,7 @@ public class SimpleSlickGame extends BasicGame
 		}
 		return true;
 	}
+	
 //	Testing if a row is full, and storing what row is full within fullRow.
 	public boolean rowTest(){
 		for(int j = 1; j < 28; j++){
@@ -283,6 +288,7 @@ public class SimpleSlickGame extends BasicGame
 		}
 		return false;
 	}
+	
 //	Testing if current brick is on top of another brick.
 	public boolean hitTestDown(){
 		for(int i = 0; i < 4; i++){
@@ -292,6 +298,7 @@ public class SimpleSlickGame extends BasicGame
 		}
 		return true;
 	}
+	
 //	Testing if current brick is next to a placed brick on its Left side.
 	public boolean hitTestLeft(){
 		for(int i = 0; i < 4; i++){
@@ -301,6 +308,7 @@ public class SimpleSlickGame extends BasicGame
 		}
 		return true;
 	}
+	
 //	Testing if current brick is next to a placed brick on its right side.
 	public boolean hitTestRight(){
 		for(int i = 0; i < 4; i++){
