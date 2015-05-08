@@ -185,7 +185,7 @@ public class SimpleSlickGame extends BasicGame
 //		Draws the current brick depending on currentBricks position within the grid.
 		for(int i = 0; i < 4; i++)
 			Long.sQ.draw(Long.xRow[currentBrick[i][0]],Long.yRow[currentBrick[i][1]]);	
-		NextBrickImage.Draw.drawCentered(250.0f, 40.0f);
+		NextBrickImage.Draw.drawCentered(245.0f, 65.0f);
 		
 		Border.draw(0,0);
 		g.drawString("Score :", 209, 150);
@@ -313,4 +313,3 @@ public class SimpleSlickGame extends BasicGame
 			}
 	}
 }
-//IT THIS SHIT WORKING?
