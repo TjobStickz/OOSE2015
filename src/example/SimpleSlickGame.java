@@ -213,6 +213,7 @@ public class SimpleSlickGame extends BasicGame
 			Long.sQ.draw(Long.xRow[currentBrick[i][0]],Long.yRow[currentBrick[i][1]]);	
 		NextBrickImage.Draw.drawCentered(245.0f, 65.0f);
 		
+		// Drawing border + Score and lines
 		Border.draw(0,0);
 		g.drawString("Score :", 209, 150);
 		g.drawString(" " + score, 200,170);
