@@ -47,11 +47,12 @@ public class SimpleSlickGame extends BasicGame
 	@Override
 	public void init(GameContainer gc) throws SlickException {
 		
-//		Storage loop.
+//		Initialize Storage loop.
 		for(int i = 0; i < 28; i++)
 			for(int j = 0; j < 14; j++)
 				storage[i][j] = 0;
-		
+
+//		Initialize different variables
 		Border = new Image("data/Grid_border_tina.png");
 		l0st = new Image("data/Game_Over.png");
 		grid = new tGrid();
@@ -69,20 +70,7 @@ public class SimpleSlickGame extends BasicGame
 	public void update(GameContainer gc, int delta) throws SlickException {
 		Input input = gc.getInput();
 		
-		if(lost == true){
-			if(input.isKeyPressed(Input.KEY_ENTER)){
-				
-				for(int i = 0; i < 28; i++)
-					for(int j = 0; j < 14; j++)
-						storage[i][j] = 0;
-				
-				score = 0;
-				lines = 0;
-				
-				lost = false;
-			}
-		}
-		
+//		if lost just ensures that you cannot move any objects and it wont update anymore after lost check turns lost = true
 		if(lost == false){
 		Long.update();
 		PhantomBrick.update();
@@ -177,11 +165,29 @@ public class SimpleSlickGame extends BasicGame
 		}
 		follow();
 		}
+		
+//		Going through the storage array checking top positions within the array, if they are not 0, means a brick is at top and you lose
 		for(int i = 0; i < 5; i++)
 			for(int j = 2; j < 11; j++)
 		if(storage[i][j] != 0){
 			lost = true;
 		}
+		
+//		If lost is true, you can press the enter key to reset storage(remove all bricks) and null lines and score.
+//		turning lost into false again, to resume playing
+		
+		if(lost == true){
+			if(input.isKeyPressed(Input.KEY_ENTER)){
+				for(int i = 0; i < 28; i++)
+					for(int j = 0; j < 14; j++)
+						storage[i][j] = 0;
+				
+				score = 0;
+				lines = 0;
+				lost = false;
+			}
+		}
+		
 	}
 
 	@Override
@@ -217,12 +223,14 @@ public class SimpleSlickGame extends BasicGame
 			Long.sQ.draw(Long.xRow[currentBrick[i][0]],Long.yRow[currentBrick[i][1]]);	
 		NextBrickImage.Draw.drawCentered(245.0f, 65.0f);
 		
+//		Drawing border on top of that drawing strings stating score and lines cleared
 		Border.draw(0,0);
 		g.drawString("Score :", 209, 150);
 		g.drawString(" " + score, 200,170);
 		g.drawString("Lines :", 209, 200);
 		g.drawString(" " + lines, 200,220);
 		
+//		drawing an Image saying game over when lost = true, also draws a string saying what to press when game is lost
 		if(lost == true) {
 			l0st.drawCentered(110, 212);
 			g.drawString("Press Enter to replay", 25, 240);

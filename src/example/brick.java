@@ -90,11 +90,13 @@ public class brick extends tGrid {
 		}
 	}
 	
-//	Void update that constantly updates the position of brick.
+//	Void update that constantly updates the position of brick. Is called within Void update in main class
 	public void update(){
 		
-//		Long piece.
+//		This switch case swaps through the different bricks
+//		And the switch cases under this swaps through the positions of the different rotations available for each brick
 		switch(this.caseNum){
+//		Long piece.
 		case 1:
 			switch(rotate){
 			case 1: brick = new int[][]{{this.posX,this.posY-2},{this.posX,this.posY-1},{this.posX,this.posY},{this.posX,this.posY+1}};

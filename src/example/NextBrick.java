@@ -35,6 +35,7 @@ public class NextBrick{
 				
 	}
 	
+//	Void check is called within the mainclasses void update, so it constantly checks for the caseNumbers and swtiches to the right number
 	public void check(){
 		
 //		Switch-case that draws each of the images.
