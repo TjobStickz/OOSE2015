@@ -18,6 +18,7 @@ public class SimpleSlickGame extends BasicGame
 	brick PhantomBrick;
 	NextBrick NextBrickImage;
 	Image Border;
+	Image l0st;
 	
 	int xCor = 7;
 	int yCor = 5;
@@ -36,6 +37,7 @@ public class SimpleSlickGame extends BasicGame
 	int[][] currentBrick;
 	int fullRow;
 	int moveRow;
+	boolean lost = false;
 	
 	public SimpleSlickGame(String gamename)
 	{
@@ -51,6 +53,7 @@ public class SimpleSlickGame extends BasicGame
 				storage[i][j] = 0;
 		
 		Border = new Image("data/Grid_border_tina.png");
+		l0st = new Image("data/Game_Over.png");
 		grid = new tGrid();
 		Long = new brick(xCor,yCor,caseType, 1);
 		
@@ -64,6 +67,23 @@ public class SimpleSlickGame extends BasicGame
 	@Override
 //	Void update that consistently updates objects inside it.
 	public void update(GameContainer gc, int delta) throws SlickException {
+		Input input = gc.getInput();
+		
+		if(lost == true){
+			if(input.isKeyPressed(Input.KEY_ENTER)){
+				
+				for(int i = 0; i < 28; i++)
+					for(int j = 0; j < 14; j++)
+						storage[i][j] = 0;
+				
+				score = 0;
+				lines = 0;
+				
+				lost = false;
+			}
+		}
+		
+		if(lost == false){
 		Long.update();
 		PhantomBrick.update();
 		NextBrickImage.check();
@@ -77,7 +97,7 @@ public class SimpleSlickGame extends BasicGame
 		ColorTrack = Long.caseNum;
 		fallSpeed += delta;
 		
-		Input input = gc.getInput();
+		
 				
 		if(rowTest() == true) {
 			if(fullRow != 0) {
@@ -152,6 +172,12 @@ public class SimpleSlickGame extends BasicGame
 			}
 		}
 		follow();
+		}
+		for(int i = 0; i < 5; i++)
+			for(int j = 2; j < 11; j++)
+		if(storage[i][j] != 0){
+			lost = true;
+		}
 	}
 
 	@Override
@@ -192,6 +218,11 @@ public class SimpleSlickGame extends BasicGame
 		g.drawString(" " + score, 200,170);
 		g.drawString("Lines :", 209, 200);
 		g.drawString(" " + lines, 200,220);
+		
+		if(lost == true) {
+			l0st.drawCentered(110, 212);
+			g.drawString("Press Enter to replay", 25, 240);
+		}
 	}
 	public static void main(String[] args)
 	{
