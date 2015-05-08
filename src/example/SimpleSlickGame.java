@@ -50,7 +50,7 @@ public class SimpleSlickGame extends BasicGame
 			for(int j = 0; j < 14; j++)
 				storage[i][j] = 0;
 		
-		Border = new Image("src/data/Grid_border_tina.png");
+		Border = new Image("data/Grid_border_tina.png");
 		grid = new tGrid();
 		Long = new brick(xCor,yCor,caseType, 1);
 		
