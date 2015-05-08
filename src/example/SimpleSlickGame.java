@@ -125,20 +125,20 @@ public class SimpleSlickGame extends BasicGame
 			nextType = randomInt(7);
 		}
 				
-		if(input.isKeyPressed(Input.KEY_A)){
+		if(input.isKeyPressed(Input.KEY_A) || input.isKeyPressed(Input.KEY_LEFT)){
 			if(sideTestLeft() == true && hitTestLeft())
 			Long.posX -= 1;
 		}
-		if(input.isKeyPressed(Input.KEY_D)){
+		if(input.isKeyPressed(Input.KEY_D) || input.isKeyPressed(Input.KEY_RIGHT)){
 			if(sideTestRight() == true && hitTestRight() == true)	
 			Long.posX += 1;	
 		}
 		
-		if(input.isKeyDown(Input.KEY_S)){
+		if(input.isKeyDown(Input.KEY_S) || input.isKeyPressed(Input.KEY_DOWN)){
 			fallSpeed += 10;
 		}	
 		
-		if(input.isKeyPressed(Input.KEY_W)){
+		if(input.isKeyPressed(Input.KEY_W) || input.isKeyPressed(Input.KEY_UP)){
 			if(turnCheck() == true){
 				if(Long.rotate == 1){
 					Long.rotate = 2;
